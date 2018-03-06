@@ -1,0 +1,15 @@
+php.ini
+/logs/
+/themes/*
+/uploads/
+/index.php
+/languages/
+/plugins/*
+!/themes/draft-portfolio_child/
+!/themes/yhei-web-design2/
+/ai1wm-backups/
+/cache/
+/php_errors.log
+/w3tc-config/
+/wflogs/
+

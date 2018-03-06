@@ -1,0 +1,174 @@
+/*
+Template:draft-portfolio
+Theme Name:draft-portfolio_child
+*/
+@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+html {
+  font-family: "Noto Sans Japanese";
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Noto Sans Japanese";
+}
+
+#cssmenu a {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 100;
+}
+
+header h1.site-title,
+header p.site-description {
+  font-family: "Saira Condensed", sans-serif;
+}
+header h1.site-title {
+  font-size: 40px;
+}
+
+@media (max-width: 1024px) {
+  div.main-nav ul li {
+    text-align: left;
+  }
+}
+
+div.welcome h1 {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+  font-size: 24px;
+}
+
+div#content {
+  min-height: 800px;
+}
+
+@media handheld, only screen and (max-width: 767px) {
+  .mobile-col-1-1 {
+    width: 100% !important;
+  }
+
+  .mobile-col-2-3, .mobile-col-8-12 {
+    width: 66.66% !important;
+  }
+
+  .mobile-col-1-2, .mobile-col-6-12 {
+    width: 50% !important;
+  }
+
+  .mobile-col-1-3, .mobile-col-4-12 {
+    width: 33.33% !important;
+  }
+
+  .mobile-col-1-4, .mobile-col-3-12 {
+    width: 25% !important;
+  }
+
+  .mobile-col-1-5 {
+    width: 20% !important;
+  }
+
+  .mobile-col-1-6, .mobile-col-2-12 {
+    width: 16.667% !important;
+  }
+
+  .mobile-col-1-7 {
+    width: 14.28% !important;
+  }
+
+  .mobile-col-1-8 {
+    width: 12.5% !important;
+  }
+
+  .mobile-col-1-9 {
+    width: 11.1% !important;
+  }
+
+  .mobile-col-1-10 {
+    width: 10% !important;
+  }
+
+  .mobile-col-1-11 {
+    width: 9.09% !important;
+  }
+
+  .mobile-col-1-12 {
+    width: 8.33% !important;
+  }
+
+  /* Layout Columns */
+  .mobile-col-11-12 {
+    width: 91.66%  !important;
+  }
+
+  .mobile-col-10-12 {
+    width: 83.333% !important;
+  }
+
+  .mobile-col-9-12 {
+    width: 75% !important;
+  }
+
+  .mobile-col-5-12 {
+    width: 41.66% !important;
+  }
+
+  .mobile-col-7-12 {
+    width: 58.33% !important;
+  }
+}
+@media handheld, only screen and (max-width: 424px) {
+  .small-col-1 {
+    width: 100% !important;
+  }
+}
+div.entry-content p {
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+.col-8-12-custom {
+  width: 60%;
+}
+
+#comments {
+  margin-bottom: 80px;
+}
+
+.site-footer #cssmenu ul {
+  text-align: left;
+}
+@media (max-width: 1024px) {
+  .site-footer #cssmenu ul {
+    max-height: initial;
+  }
+  .site-footer #cssmenu ul li {
+    display: inline-block;
+    width: initial;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-footer {
+    display: block;
+  }
+}
+.site-footer #cssmenu > ul > li > a {
+  padding: 15px 30px 15px 0px;
+}
+
+.site-footer .site-info, .site-footer .site-info a {
+  text-align: left;
+}
+
+h2.widget-title {
+  font-family: "Saira Condensed", "Noto Sans Japanese", sans-serif;
+}
+
+/*# sourceMappingURL=style.css.map */
