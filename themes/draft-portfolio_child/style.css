@@ -23,6 +23,11 @@ textarea {
   font-weight: 100;
 }
 
+ul,
+ol {
+  margin: 0;
+}
+
 header h1.site-title,
 header p.site-description {
   font-family: "Saira Condensed", sans-serif;
