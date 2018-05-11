@@ -18,7 +18,10 @@
 		</div>
 		<div class='post-title'>
 			<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-			<?php the_date('Y.m.d', '<p class="date">', '</p>'); ?>
+			
+			<p class="date">
+				<?php the_time('Y.m.d'); ?>
+			</p>
 		</div>
 
   <div class="overbox">
