@@ -156,7 +156,7 @@ article.grid-item .post-title h2.entry-title a:hover {
 }
 article.grid-item .post-title p.date {
   color: gray;
-  text-align: right;
+  text-align: left;
   margin: 8px 0 0 0;
 }
 article.grid-item .overbox {
