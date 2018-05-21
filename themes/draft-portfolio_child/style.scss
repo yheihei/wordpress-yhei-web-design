@@ -202,12 +202,29 @@ article.grid-item {
 // blog
 div.entry-content {
   p {
-    line-height: 1.8;
+    line-height: 2;
     font-size: 18px;
   }
   ul,
   ol {
     margin-bottom: 1em;
+  }
+  blockquote {
+    background-color: rgb(232, 232, 232);
+    border-left-color: rgb(232, 232, 232);
+    background-image: url(../draft-portfolio_child/img/quoat.png);
+    background-repeat: no-repeat;
+    background-position: left 16px top 16px;
+    padding-top: 56px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 16px;
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #CCC;
   }
 }
 
