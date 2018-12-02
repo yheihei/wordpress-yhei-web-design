@@ -1,10 +1,10 @@
+@charset "UTF-8";
 /*
 Template:draft-portfolio
 Theme Name:draft-portfolio_child
 */
-@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 html {
-  font-family: "Noto Sans Japanese";
+  font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -15,7 +15,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Noto Sans Japanese";
+  font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 }
 
 #cssmenu a {
@@ -238,7 +238,7 @@ div.entry-content blockquote {
 }
 
 h2.widget-title {
-  font-family: "Saira Condensed", "Noto Sans Japanese", sans-serif;
+  font-family: "Saira Condensed", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -4,11 +4,12 @@ Template:draft-portfolio
 Theme Name:draft-portfolio_child
 */
 
-@import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+// @import url(https://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
 
 $midashi_font : 'Saira Condensed', sans-serif;
-$gothick_font : 'Noto Sans Japanese';
-$mixed_font : 'Saira Condensed', 'Noto Sans Japanese', sans-serif;
+// $gothick_font : 'Noto Sans Japanese';
+$gothick_font : "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+$mixed_font : 'Saira Condensed', "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 
 html {
 	font-family: $gothick_font;
