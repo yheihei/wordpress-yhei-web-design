@@ -23,3 +23,21 @@ $template = locate_template( $templates );
 }
 return $template;
 }
+
+/**
+ * Home画面でPortfolioカテゴリーの記事とその子カテゴリーの記事のみ取得する
+ */
+function yhei_home_change_sort_order( $query ) {
+  if ( is_admin() || ! $query->is_main_query() ) {
+    return;
+  }
+
+  if ( $query->is_home() ) {
+    $idObj = get_category_by_slug( 'portfolio' );
+    $category_id = $idObj->term_id;
+    if($category_id) {
+      $query->set( 'cat', $category_id );
+    }
+  }
+}
+add_action( 'pre_get_posts', 'yhei_home_change_sort_order' );
