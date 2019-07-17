@@ -8,7 +8,6 @@
  */
 
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'col-4-12 grid-item mobile-col-6-12 small-col-1'); ?>>
 	<?php 	if ( has_post_thumbnail() ) { ?>
 		<div class='post-thumb'>

@@ -241,4 +241,33 @@ h2.widget-title {
   font-family: "Saira Condensed", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 }
 
+.heading {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: black;
+  font-size: 36px;
+  line-height: 1.1;
+  font-feature-settings: "palt";
+}
+
+.heading--dropcap:first-letter {
+  font-size: 200%;
+}
+
+.heading__caption {
+  display: block;
+  font-size: 14px;
+  border: 2px solid;
+  border-width: 2px 0 0 0;
+  padding-top: 8px;
+}
+
+a.top-category-link {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+}
+
 /*# sourceMappingURL=style.css.map */

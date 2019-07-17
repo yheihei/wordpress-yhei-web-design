@@ -2,7 +2,6 @@ php.ini
 /logs/
 /themes/*
 /uploads/
-/index.php
 /languages/
 /plugins/*
 !/themes/draft-portfolio_child/
