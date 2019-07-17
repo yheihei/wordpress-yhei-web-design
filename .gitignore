@@ -2,7 +2,6 @@ php.ini
 /logs/
 /themes/*
 /uploads/
-/index.php
 /languages/
 /plugins/*
 !/themes/draft-portfolio_child/
@@ -12,4 +11,7 @@ php.ini
 /php_errors.log
 /w3tc-config/
 /wflogs/
-
+/.phpcs.xml.dist
+/.travis.yml
+/bin/
+/phpunit.xml.dist

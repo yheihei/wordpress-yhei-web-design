@@ -41,3 +41,12 @@ function yhei_home_change_sort_order( $query ) {
   }
 }
 add_action( 'pre_get_posts', 'yhei_home_change_sort_order' );
+
+function createDiaryPostsQuery() {
+  $args = array( 
+    'category_name' => 'blogs',
+    'posts_per_page' => 3, 
+  );
+  return new WP_Query( $args );
+}
+
