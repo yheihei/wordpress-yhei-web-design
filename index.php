@@ -15,7 +15,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<h2 class="heading heading--dropcap">Diary<span class="heading__caption">思っていること 考えていること</span></h2>
+		<h2 class="heading heading--dropcap">Diary<span class="heading__caption">思っていること 経験したこと</span></h2>
 		<div class="site-main masonry" role="main">
 		<?php 
 			// 日記カテゴリーを表示
