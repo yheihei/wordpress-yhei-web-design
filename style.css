@@ -58,6 +58,10 @@ div#content {
   min-height: 800px;
 }
 
+.col-1-2-custom, .col-6-12-custom {
+	width: 50% !important;
+}
+
 @media handheld, only screen and (max-width: 767px) {
   .mobile-col-1-1 {
     width: 100% !important;
@@ -159,6 +163,11 @@ article.grid-item .post-title p.date {
   text-align: left;
   margin: 8px 0 0 0;
 }
+
+article.grid-item .post-title p.date--small {
+  font-size: 1.0rem;
+}
+
 article.grid-item .overbox {
   top: 1em;
   text-align: left;
@@ -268,6 +277,21 @@ a.top-category-link {
   font-weight: 400;
   font-style: normal;
   font-size: 24px;
+}
+
+.entry--related {
+  margin-top:0;
+  margin-bottom:0;
+}
+
+/* サイドバーがスマホ表示時にメインカラムと重なる不具合修正 */
+@media handheld, only screen and (max-width: 767px) {
+  [class*='col-'] {
+    float: left !important;
+  }
+  #secondary {
+    padding: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
