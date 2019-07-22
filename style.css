@@ -287,7 +287,7 @@ a.top-category-link {
 /* サイドバーがスマホ表示時にメインカラムと重なる不具合修正 */
 @media handheld, only screen and (max-width: 767px) {
   [class*='col-'] {
-    float: left !important;
+    /* float: left !important; */
   }
   #secondary {
     padding: 0;
