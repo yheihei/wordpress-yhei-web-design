@@ -13,7 +13,7 @@ Author: mitcho (Michael Yoshitaka Erlewine)
 					<?php if (has_post_thumbnail()):?>
 					<?php the_post_thumbnail('draft-portfolio-thumbnail'); ?>
 					<?php else: ?>
-					<img width="800" height="640" src="<?php echo $child_theme_uri; ?>/img/yhei_web_design_catch-800x640.jpg" class="attachment-draft-portfolio-thumbnail size-draft-portfolio-thumbnail wp-post-image" alt="" />
+					<img width="800" height="640" src="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg" class="attachment-draft-portfolio-thumbnail size-draft-portfolio-thumbnail wp-post-image" alt="" />
 					<?php endif; ?>
 					</a>
 			</div>
