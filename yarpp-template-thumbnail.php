@@ -4,7 +4,7 @@ YARPP Template: Thumbnails
 Description: Requires a theme which supports post thumbnails
 Author: mitcho (Michael Yoshitaka Erlewine)
 */ ?>
-<h3>こちらも読まれています</h3>
+<h3 class="heading heading--dropcap yarpp-related--custom">Related Posts<span class="heading__caption heading__caption--small">こちらも読まれています</span></h3>
 <?php if (have_posts()):?>
 	<?php while (have_posts()) : the_post(); ?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-6-12-custom grid-item mobile-col-6-12 small-col-1'); ?>>
