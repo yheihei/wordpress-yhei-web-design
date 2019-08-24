@@ -323,10 +323,14 @@ a.top-category-link {
   font-family: "Saira Condensed", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 32px;
-  margin-bottom: 16px;
+  font-size: 16px;
+  margin-bottom: 8px;
   border: solid black;
   border-width: 0 0 2px 0;
+}
+
+#secondary h2.widget-title:first-letter {
+  font-size: 200%;
 }
 
 /*-- 人気記事デザイン --*/
@@ -340,9 +344,10 @@ ul.wpp-list li img {/*アイキャッチ画像*/
 
 ul.wpp-list li a.wpp-post-title {/*記事タイトル*/
   display: block;/*ブロック形式で表示*/
-  font-size: 15px;/*文字サイズ*/
-  color: #333;/*文字色*/
+  font-size: 15px;
+  color: black;/*文字色*/
   text-decoration: none;/*タイトルの下線なし*/
+  text-transform: capitalize;
 }
 
 ul.wpp-list li a.wpp-post-title:hover {
