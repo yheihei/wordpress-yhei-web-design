@@ -294,4 +294,47 @@ a.top-category-link {
   }
 }
 
+/* サイドバーのデザイン */
+#secondary ul {
+  margin: 0;
+}
+
+#secondary ul li {
+  padding-left: 0;
+}
+
+#secondary .children li {
+  padding-left: 1rem;
+}
+
+#secondary h2.widget-title {
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  margin-bottom: 16px;
+  border: solid black;
+  border-width: 0 0 2px 0;
+}
+
+/*-- 人気記事デザイン --*/
+ul.wpp-list li {
+  position: relative;/*相対位置*/
+}
+
+ul.wpp-list li img {/*アイキャッチ画像*/
+  margin: 0 16px 0 0;/*画像の余白*/
+}
+
+ul.wpp-list li a.wpp-post-title {/*記事タイトル*/
+  display: block;/*ブロック形式で表示*/
+  font-size: 15px;/*文字サイズ*/
+  color: #333;/*文字色*/
+  text-decoration: none;/*タイトルの下線なし*/
+}
+
+ul.wpp-list li a.wpp-post-title:hover {
+  color: #4169e1;/*ホバー時のタイトル色*/
+}
+
 /*# sourceMappingURL=style.css.map */
