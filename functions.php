@@ -50,6 +50,9 @@ function createDiaryPostsQuery() {
   return new WP_Query( $args );
 }
 
+/**
+ * WordPressループ内で使用すると、記事の情報をもとにblogPostingのスニペットを出力する
+ */
 function the_blog_post() {
   ?>
 	<meta itemprop='author' content="<?php the_author(); ?>">
