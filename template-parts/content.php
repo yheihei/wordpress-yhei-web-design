@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting" >
 		<meta itemprop='author' content="<?php the_author(); ?>">
-		<meta itemprop='description' content="<?php the_excerpt(); ?>">
+		<meta itemprop='description' content="<?php echo get_the_excerpt(); ?>">
 		<meta itemprop='datePublished' content="<?php echo get_date_from_gmt(get_post_time('c', true), 'c');?>">
 		<meta itemprop='dateModified' content="<?php echo get_date_from_gmt(get_post_modified_time('c', true), 'c');?>">
 		<div class='post-thumb' itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
