@@ -14,7 +14,8 @@ $the_query = createDiaryPostsQuery();
 ?>
 
 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-4-12 grid-item mobile-col-6-12 small-col-1'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-4-12 grid-item mobile-col-6-12 small-col-1'); ?> itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<?php the_blog_post(); ?>
 	<?php $child_theme_uri  = get_stylesheet_directory_uri(); ?>
 		<div class='post-thumb'>
 				<a href="<?php the_permalink();?>" >

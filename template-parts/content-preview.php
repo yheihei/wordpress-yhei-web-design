@@ -8,7 +8,8 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-4-12 grid-item mobile-col-6-12 small-col-1'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'col-4-12 grid-item mobile-col-6-12 small-col-1'); ?> itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<?php the_blog_post(); ?>
 	<?php 	if ( has_post_thumbnail() ) { ?>
 		<div class='post-thumb'>
 				<a href="<?php the_permalink();?>" >

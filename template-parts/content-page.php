@@ -9,7 +9,8 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<?php the_blog_post(); ?>
 	<div class='post-thumb'>
 		<?php the_post_thumbnail('full'); ?>
 	</div>
