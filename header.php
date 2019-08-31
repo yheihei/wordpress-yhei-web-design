@@ -72,8 +72,8 @@ From Sapporo.</h1>
         <?php
         $cat_info = get_category( $cat );
         ?>
-        <div class="col-10-12 welcome">
-            <h1>Category:<?php echo wp_specialchars( $cat_info->name ); ?></h1>
+        <div class="welcome">
+            <h1 class="heading heading--primary heading--dropcap"><?php echo wp_specialchars( $cat_info->name ); ?></h1>
         </div>
         <?php endif; ?>
         <!-- Global site tag (gtag.js) - Google Analytics -->
