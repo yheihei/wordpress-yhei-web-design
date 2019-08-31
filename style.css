@@ -372,7 +372,7 @@ a.more-link__default {
   border-color: black;
   border-width: 0 0 2px;
 }
-a.more-link__default :hover {
+a.more-link__default:hover {
   color: #161616;
   border-color: #161616;
 }
