@@ -78,3 +78,9 @@ function the_blog_post() {
 	<meta itemprop="headline" content="<?php the_title(); ?>">
 <?php  
 }
+
+// 続きを読むボタンのカスタマイズ
+function modify_read_more_link() {
+  return '<div class="more-link"><a class="more-link--link" href="' . get_permalink() . '">......More</a></div>';
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );

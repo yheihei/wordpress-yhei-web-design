@@ -354,4 +354,31 @@ ul.wpp-list li a.wpp-post-title:hover {
   color: #4169e1;/*ホバー時のタイトル色*/
 }
 
+/***
+* ブログ記事一覧の 続きを読む のスタイリング
+*/
+.more-link {
+  text-align: right;
+}
+.more-link--link {
+  color: black;
+  font-family: "Saira Condensed", sans-serif;
+  font-size: 24px;
+  margin-bottom: 1rem;
+  display: inline-block;
+  padding-bottom: 2px;
+  border: solid black;
+  border-width: 0 0 2px;
+}
+a.more-link--link {
+  color: black;
+}
+a.more-link--link:hover {
+  color: #161616;
+}
+.entry-footer {
+  margin-bottom:4rem;
+  text-align: right;
+}
+
 /*# sourceMappingURL=style.css.map */
