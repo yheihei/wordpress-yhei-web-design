@@ -361,20 +361,20 @@ ul.wpp-list li a.wpp-post-title:hover {
   text-align: right;
 }
 .more-link--link {
-  color: black;
   font-family: "Saira Condensed", sans-serif;
   font-size: 24px;
-  margin-bottom: 1rem;
   display: inline-block;
-  padding-bottom: 2px;
-  border: solid black;
+  margin-bottom: 1rem;
+}
+a.more-link__default {
+  color: black;
+  border: solid;
+  border-color: black;
   border-width: 0 0 2px;
 }
-a.more-link--link {
-  color: black;
-}
-a.more-link--link:hover {
+a.more-link__default :hover {
   color: #161616;
+  border-color: #161616;
 }
 .entry-footer {
   margin-bottom:4rem;

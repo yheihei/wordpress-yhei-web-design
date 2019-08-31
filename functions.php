@@ -81,6 +81,6 @@ function the_blog_post() {
 
 // 続きを読むボタンのカスタマイズ
 function modify_read_more_link() {
-  return '<div class="more-link"><a class="more-link--link" href="' . get_permalink() . '">......More</a></div>';
+  return '<div class="more-link"><a class="more-link--link more-link__default" href="' . get_permalink() . '">......More</a></div>';
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
