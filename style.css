@@ -260,6 +260,11 @@ h2.widget-title {
   font-feature-settings: "palt";
 }
 
+.heading--primary {
+  border: solid;
+  border-width: 0 0 2px 0;
+}
+
 .heading--dropcap:first-letter {
   font-size: 200%;
 }
