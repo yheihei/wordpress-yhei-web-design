@@ -15,21 +15,24 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<h2 class="heading heading--dropcap">Diary<span class="heading__caption">思っていること 経験したこと</span></h2>
-		<div class="site-main masonry" role="main">
-		<?php 
-			// 日記カテゴリーを表示
-			get_template_part( 'template-parts/index', 'diary' ); ?>
-		</div>
+    <?php if( is_home() && !is_paged() ) : ?>
+      <h2 class="heading heading--dropcap">Diary<span class="heading__caption">思っていること 経験したこと</span></h2>
+      <div class="site-main masonry" role="main">
+      <?php
+        // 日記カテゴリーを表示
+        get_template_part( 'template-parts/index', 'diary' );
+      ?>
+      </div>
 
-		<?php
-			// 指定したカテゴリーの ID を取得
-			$idObj = get_category_by_slug( 'blogs');
-  		$category_id = $idObj->term_id;
-			// このカテゴリーの URL を取得
-			$category_link = get_category_link( $category_id );
-		?>
-		<a class="top-category-link" href="<?php echo esc_url( $category_link ); ?>" >...More</a>
+      <?php
+        // 指定したカテゴリーの ID を取得
+        $idObj = get_category_by_slug( 'blogs');
+        $category_id = $idObj->term_id;
+        // このカテゴリーの URL を取得
+        $category_link = get_category_link( $category_id );
+      ?>
+      <a class="top-category-link" href="<?php echo esc_url( $category_link ); ?>" >...More</a>
+    <?php endif; ?>
 
 		<h2 class="heading heading--dropcap">Work<span class="heading__caption">得意なこと 仕事ぶり</span></h2>
 		<main id="main" class="site-main masonry" role="main">
