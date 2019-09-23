@@ -3,7 +3,7 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_parent_theme_file_uri() . '/style.css' );
     // Theme stylesheet.
-	wp_enqueue_style( 'draft-portfolio-style', get_stylesheet_uri(), null, filemtime( get_stylesheet_directory() . '/style.css'), null );
+  wp_enqueue_style( 'draft-portfolio-style', get_stylesheet_uri(), null, filemtime( get_stylesheet_directory() . '/style.css'), null );
 }
 
 // 親カテゴリーのアーカイブを子カテゴリーも使う
@@ -55,27 +55,27 @@ function createDiaryPostsQuery() {
  */
 function the_blog_post() {
   ?>
-	<meta itemprop='author' content="<?php the_author(); ?>">
-	<meta itemprop='description' content="<?php echo get_the_excerpt(); ?>">
-	<meta itemprop='datePublished' content="<?php echo get_date_from_gmt(get_post_time('c', true), 'c');?>">
-	<meta itemprop='dateModified' content="<?php echo get_date_from_gmt(get_post_modified_time('c', true), 'c');?>">
-	<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-		<?php if( has_post_thumbnail() ) : ?>
-		<meta itemprop="url" content="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>">
-		<?php else: ?>
-		<meta itemprop="url" content="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg">
-		<?php endif; ?>		
-	</div>
-	<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="<?php the_permalink(); ?>"/>
-	<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-		<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-			<meta itemprop="url" content="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg">
-			<meta itemprop="width" content="800">
-			<meta itemprop="height" content="640">
-		</div>
-		<meta itemprop="name" content="<?php bloginfo( 'name' ) ?>">
-	</div>
-	<meta itemprop="headline" content="<?php the_title(); ?>">
+  <meta itemprop='author' content="<?php the_author(); ?>">
+  <meta itemprop='description' content="<?php echo get_the_excerpt(); ?>">
+  <meta itemprop='datePublished' content="<?php echo get_date_from_gmt(get_post_time('c', true), 'c');?>">
+  <meta itemprop='dateModified' content="<?php echo get_date_from_gmt(get_post_modified_time('c', true), 'c');?>">
+  <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <?php if( has_post_thumbnail() ) : ?>
+    <meta itemprop="url" content="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>">
+    <?php else: ?>
+    <meta itemprop="url" content="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg">
+    <?php endif; ?>		
+  </div>
+  <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="<?php the_permalink(); ?>"/>
+  <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+      <meta itemprop="url" content="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg">
+      <meta itemprop="width" content="800">
+      <meta itemprop="height" content="640">
+    </div>
+    <meta itemprop="name" content="<?php bloginfo( 'name' ) ?>">
+  </div>
+  <meta itemprop="headline" content="<?php the_title(); ?>">
 <?php  
 }
 
@@ -84,3 +84,30 @@ function modify_read_more_link() {
   return '<div class="more-link"><a class="more-link--link more-link__default" href="' . get_permalink() . '">......More</a></div>';
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
+
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ * 投稿情報表示関数(親テーマの関数を上書き)
+ * 投稿者名は非表示にした
+ */
+function draft_portfolio_posted_on() {
+  $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+  if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+    $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+  }
+
+  $time_string = sprintf( $time_string,
+    esc_attr( get_the_date( 'c' ) ),
+    esc_html( get_the_date() ),
+    esc_attr( get_the_modified_date( 'c' ) ),
+    esc_html( get_the_modified_date() )
+  );
+
+  $posted_on = sprintf(
+    esc_html_x( 'Posted on %s', 'post date', 'draft-portfolio' ),
+    '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+  );
+
+  echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+
+}
