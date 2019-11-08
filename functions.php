@@ -3,7 +3,55 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_parent_theme_file_uri() . '/style.css' );
     // Theme stylesheet.
-	wp_enqueue_style( 'draft-portfolio-style', get_stylesheet_uri(), null, filemtime( get_stylesheet_directory() . '/style.css'), null );
+  wp_enqueue_style( 'draft-portfolio-style', get_stylesheet_uri(), null, filemtime( get_stylesheet_directory() . '/style.css'), null );
+}
+
+/**
+ * 管理画面
+ */
+/**
+ * トップに表示するカテゴリーやタグの設定
+ */
+add_action('admin_menu', 'top_category_menu');
+function top_category_menu() {
+  add_menu_page('子テーマカスタマイズ', '子テーマカスタマイズ', 'administrator', __FILE__, 'child_setting_page','',61);
+  add_action( 'admin_init', 'register_draft_portfolio_child_settings' );
+}
+function register_draft_portfolio_child_settings() {
+  // カテゴリーページ設定
+  register_setting( 'category-settings-group', 'yhei_show_list_category_ids' );
+}
+function child_setting_page() {
+?>
+  <div class="wrap">
+    <h2>カテゴリーページ表示設定</h2>
+    <form method="post" action="options.php">
+      <?php 
+        settings_fields( 'category-settings-group' );
+        do_settings_sections( 'category-settings-group' );
+      ?>
+      <table class="form-table">
+        <tbody>
+          <tr>
+            <th scope="row">
+              <label for="yhei_show_list_category_ids">直近の子カテゴリーの一覧を表示するカテゴリーID(ex. 催事別カテゴリーページ)</label>
+            </th>
+              <td>
+                <input type="text" 
+                  id="yhei_show_list_category_ids" 
+                  class="regular-text" 
+                  name="yhei_show_list_category_ids" 
+                  value="<?php echo get_option('yhei_show_list_category_ids'); ?>"
+                  placeholder="2,8,10,12 (カテゴリーIDをカンマ区切りで入力)"
+                >
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      <?php submit_button(); ?>
+    </form>
+  </div>
+<?php
 }
 
 // 親カテゴリーのアーカイブを子カテゴリーも使う
@@ -55,27 +103,27 @@ function createDiaryPostsQuery() {
  */
 function the_blog_post() {
   ?>
-	<meta itemprop='author' content="<?php the_author(); ?>">
-	<meta itemprop='description' content="<?php echo get_the_excerpt(); ?>">
-	<meta itemprop='datePublished' content="<?php echo get_date_from_gmt(get_post_time('c', true), 'c');?>">
-	<meta itemprop='dateModified' content="<?php echo get_date_from_gmt(get_post_modified_time('c', true), 'c');?>">
-	<div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-		<?php if( has_post_thumbnail() ) : ?>
-		<meta itemprop="url" content="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>">
-		<?php else: ?>
-		<meta itemprop="url" content="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg">
-		<?php endif; ?>		
-	</div>
-	<meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="<?php the_permalink(); ?>"/>
-	<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-		<div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-			<meta itemprop="url" content="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg">
-			<meta itemprop="width" content="800">
-			<meta itemprop="height" content="640">
-		</div>
-		<meta itemprop="name" content="<?php bloginfo( 'name' ) ?>">
-	</div>
-	<meta itemprop="headline" content="<?php the_title(); ?>">
+  <meta itemprop='author' content="<?php the_author(); ?>">
+  <meta itemprop='description' content="<?php echo get_the_excerpt(); ?>">
+  <meta itemprop='datePublished' content="<?php echo get_date_from_gmt(get_post_time('c', true), 'c');?>">
+  <meta itemprop='dateModified' content="<?php echo get_date_from_gmt(get_post_modified_time('c', true), 'c');?>">
+  <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+    <?php if( has_post_thumbnail() ) : ?>
+    <meta itemprop="url" content="<?php echo get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>">
+    <?php else: ?>
+    <meta itemprop="url" content="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg">
+    <?php endif; ?>		
+  </div>
+  <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="<?php the_permalink(); ?>"/>
+  <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+    <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+      <meta itemprop="url" content="<?php echo get_stylesheet_directory_uri(); ?>/img/yhei_web_design_catch-800x640.jpg">
+      <meta itemprop="width" content="800">
+      <meta itemprop="height" content="640">
+    </div>
+    <meta itemprop="name" content="<?php bloginfo( 'name' ) ?>">
+  </div>
+  <meta itemprop="headline" content="<?php the_title(); ?>">
 <?php  
 }
 
@@ -110,4 +158,60 @@ function draft_portfolio_posted_on() {
 
   echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
+}
+
+/**
+ * 子カテゴリー一覧を表示するカテゴリーIDリストを取得
+ */
+function get_show_list_category_ids() {
+  $category_ids = get_option('yhei_show_list_category_ids');
+  if( !$category_ids ) {
+    return [];
+  }
+  // 空白除去
+  $category_ids  = preg_replace("/( |　)/", "", $category_ids );
+  $category_ids = explode(",", $category_ids);
+  return $category_ids;
+}
+
+/**
+ * 設定したカテゴリーの直近の子カテゴリーが取得できること
+ */
+function get_child_categorys($category_id){
+  $child_categorys = get_terms( 'category', array(
+    'parent' => $category_id,
+    'hide_empty' => false,
+    'orderby' => 'term_order',
+  ));
+  return $child_categorys;
+}
+
+/**
+ * アーカイブページで 現在のカテゴリーを取得する
+ */
+function get_current_term(){
+  $id = 0;
+  $tax_slug = '';
+
+  if(is_category()){
+      $tax_slug = "category";
+      $id = get_query_var('cat'); 
+  }else if(is_tag()){
+      $tax_slug = "post_tag";
+      $id = get_query_var('tag_id');  
+  }else if(is_tax()){
+      $tax_slug = get_query_var('taxonomy');  
+      $term_slug = get_query_var('term'); 
+      $term = get_term_by("slug",$term_slug,$tax_slug);
+      $id = $term->term_id;
+  }
+  return get_term($id,$tax_slug);
+}
+
+function is_category_list_page() {
+  // 特定のカテゴリーページの場合、直近の子カテゴリーのみ一覧表示する
+  $category_list_ids = get_show_list_category_ids();
+  //現在表示されているカテゴリーを取得
+  $current_term = get_current_term();
+  return !empty($category_list_ids) && in_array((string)$current_term->term_id, $category_list_ids, true);
 }
