@@ -4,6 +4,9 @@ https://ja.wordpress.org/themes/draft-portfolio/
 の子テーマです。  
 デザイナーのポートフォリオに特化したテーマをさらにカスタマイズして見やすくしています。
 
+# デモ
+https://yhei-web-design.com/
+
 # インストール方法
 
 ## Draft Portfolioテーマのマスターをインストール
