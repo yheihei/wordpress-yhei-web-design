@@ -15,8 +15,11 @@ https://ja.wordpress.org/themes/draft-portfolio/
 
 ## 本子テーマのインストール
 
+* テーマフォルダ内でgit cloneをする
+
 ```
-$ cd wp-content/themes/
-$ git clone https://<your bit bucket account>@bitbucket.org/yheihei/wp-yhei-web-design.git draft-portfolio_child
+$ cd <your wordpress root>/wp-content/themes/
+$ git clone https://<your bit bucket account>@bitbucket.org/yheihei/wordpress-yhei-web-design.git draft-portfolio_child
 ```
 
+* WordPress管理画面から本子テーマを有効化する
