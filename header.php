@@ -68,14 +68,6 @@ I Am A Professional Web Designer & Writer <br>
 From Sapporo.</h1>
         </div>
         <?php endif; ?>
-        <?php if ( is_category() ) : ?>
-        <?php
-        $cat_info = get_category( $cat );
-        ?>
-        <div class="welcome">
-            <h1 class="heading heading--primary heading--dropcap"><?php echo wp_specialchars( $cat_info->name ); ?></h1>
-        </div>
-        <?php endif; ?>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99703120-1"></script>
         <script>

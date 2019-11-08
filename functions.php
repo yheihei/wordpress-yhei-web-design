@@ -6,6 +6,54 @@ function theme_enqueue_styles() {
   wp_enqueue_style( 'draft-portfolio-style', get_stylesheet_uri(), null, filemtime( get_stylesheet_directory() . '/style.css'), null );
 }
 
+/**
+ * 管理画面
+ */
+/**
+ * トップに表示するカテゴリーやタグの設定
+ */
+add_action('admin_menu', 'top_category_menu');
+function top_category_menu() {
+  add_menu_page('子テーマカスタマイズ', '子テーマカスタマイズ', 'administrator', __FILE__, 'child_setting_page','',61);
+  add_action( 'admin_init', 'register_draft_portfolio_child_settings' );
+}
+function register_draft_portfolio_child_settings() {
+  // カテゴリーページ設定
+  register_setting( 'category-settings-group', 'yhei_show_list_category_ids' );
+}
+function child_setting_page() {
+?>
+  <div class="wrap">
+    <h2>カテゴリーページ表示設定</h2>
+    <form method="post" action="options.php">
+      <?php 
+        settings_fields( 'category-settings-group' );
+        do_settings_sections( 'category-settings-group' );
+      ?>
+      <table class="form-table">
+        <tbody>
+          <tr>
+            <th scope="row">
+              <label for="yhei_show_list_category_ids">直近の子カテゴリーの一覧を表示するカテゴリーID(ex. 催事別カテゴリーページ)</label>
+            </th>
+              <td>
+                <input type="text" 
+                  id="yhei_show_list_category_ids" 
+                  class="regular-text" 
+                  name="yhei_show_list_category_ids" 
+                  value="<?php echo get_option('yhei_show_list_category_ids'); ?>"
+                  placeholder="2,8,10,12 (カテゴリーIDをカンマ区切りで入力)"
+                >
+              </td>
+          </tr>
+        </tbody>
+      </table>
+      <?php submit_button(); ?>
+    </form>
+  </div>
+<?php
+}
+
 // 親カテゴリーのアーカイブを子カテゴリーも使う
 add_filter( 'category_template', 'my_category_template' );
 function my_category_template( $template ) {
@@ -136,4 +184,34 @@ function get_child_categorys($category_id){
     'orderby' => 'term_order',
   ));
   return $child_categorys;
+}
+
+/**
+ * アーカイブページで 現在のカテゴリーを取得する
+ */
+function get_current_term(){
+  $id = 0;
+  $tax_slug = '';
+
+  if(is_category()){
+      $tax_slug = "category";
+      $id = get_query_var('cat'); 
+  }else if(is_tag()){
+      $tax_slug = "post_tag";
+      $id = get_query_var('tag_id');  
+  }else if(is_tax()){
+      $tax_slug = get_query_var('taxonomy');  
+      $term_slug = get_query_var('term'); 
+      $term = get_term_by("slug",$term_slug,$tax_slug);
+      $id = $term->term_id;
+  }
+  return get_term($id,$tax_slug);
+}
+
+function is_category_list_page() {
+  // 特定のカテゴリーページの場合、直近の子カテゴリーのみ一覧表示する
+  $category_list_ids = get_show_list_category_ids();
+  //現在表示されているカテゴリーを取得
+  $current_term = get_current_term();
+  return !empty($category_list_ids) && in_array((string)$current_term->term_id, $category_list_ids, true);
 }

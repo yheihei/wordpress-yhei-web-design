@@ -60,4 +60,13 @@ class カテゴリーページで記事ではなく子カテゴリー一覧を�
     update_option('yhei_show_list_category_ids', $this->_category_id);
     $this->assertEquals( 'bitbucket活用方法', get_child_categorys($this->_category_id)[1]->name );
   }
+
+  /**
+   * @test
+   */
+  public function 現在のページが設定したカテゴリーページであるか判定できる() {
+    update_option('yhei_show_list_category_ids', $this->_category_id);
+    $this->go_to( get_category_link( $this->_category_id ) );
+    $this->assertTrue( is_category_list_page() );
+  }
 }
