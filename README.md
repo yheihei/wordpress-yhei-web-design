@@ -19,7 +19,7 @@ https://ja.wordpress.org/themes/draft-portfolio/
 
 ```
 $ cd <your wordpress root>/wp-content/themes/
-$ git clone https://<your bit bucket account>@bitbucket.org/yheihei/wordpress-yhei-web-design.git draft-portfolio_child
+$ git clone https://github.com/yheihei/wordpress-yhei-web-design.git draft-portfolio_child
 ```
 
 * WordPress管理画面から本子テーマを有効化する
