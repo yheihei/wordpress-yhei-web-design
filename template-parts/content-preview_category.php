@@ -42,8 +42,10 @@ foreach( $child_categorys as $child_category ) :
         </a>
     </div>
     <div class='post-title'>
-    <h2 class="entry-title"><a href="<?php echo $category_url; ?>" rel="bookmark">
+    <h2 class="entry-title">
+      <a href="<?php echo $category_url; ?>" rel="bookmark">
       <?php echo $category_name; ?>
+      </a>
     </h2>
     </div>
   </article><!-- #post-## -->
