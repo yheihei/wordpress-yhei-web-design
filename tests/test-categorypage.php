@@ -27,6 +27,7 @@ class カテゴリーページで記事ではなく子カテゴリー一覧を�
     wp_delete_category($this->_category_id_child);
     wp_delete_category($this->_category_id_child2);
     wp_delete_category($this->_category_id_other);
+    update_term_meta( $this->_category_id, 'yhei_category_metas', null );
   }
 
   /**
@@ -68,5 +69,33 @@ class カテゴリーページで記事ではなく子カテゴリー一覧を�
     update_option('yhei_show_list_category_ids', $this->_category_id);
     $this->go_to( get_category_link( $this->_category_id ) );
     $this->assertTrue( is_category_list_page() );
+  }
+
+  /**
+   * @test
+   * @group task_3
+   */
+  public function 設定したカテゴリーページのアイキャッチが取得できる() {
+    $category_metas['yhei_category_image'] = 'http://tasaka.local/yhei-web-design.com/wp-content/uploads/2019/07/hage-1024x768.jpeg';
+    $category_metas['yhei_category_image_pickup'] = 'http://tasaka.local/yhei-web-design.com/wp-content/uploads/2019/07/hage-300x225.jpeg';
+    update_term_meta( $this->_category_id, 'yhei_category_metas', $category_metas );
+    $this->assertEquals(
+      'http://tasaka.local/yhei-web-design.com/wp-content/uploads/2019/07/hage-1024x768.jpeg',
+      get_category_eyecatch( $this->_category_id )
+    );
+  }
+
+  /**
+   * @test
+   * @group task_3
+   */
+  public function 設定したカテゴリーページのピックアップ画像が取得できる() {
+    $category_metas['yhei_category_image'] = 'http://tasaka.local/yhei-web-design.com/wp-content/uploads/2019/07/hage-1024x768.jpeg';
+    $category_metas['yhei_category_image_pickup'] = 'http://tasaka.local/yhei-web-design.com/wp-content/uploads/2019/07/hage-300x225.jpeg';
+    update_term_meta( $this->_category_id, 'yhei_category_metas', $category_metas );
+    $this->assertEquals(
+      'http://tasaka.local/yhei-web-design.com/wp-content/uploads/2019/07/hage-300x225.jpeg',
+      get_category_pickup_image( $this->_category_id )
+    );
   }
 }

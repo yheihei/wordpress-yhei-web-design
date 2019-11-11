@@ -186,7 +186,8 @@ article.grid-item .overbox .overtext a {
   opacity: 0.5;
 }
 
-div.entry-content p {
+div.entry-content p,
+div.entry-content.entry-content--category {
   line-height: 2;
   font-size: 18px;
 }
@@ -384,6 +385,11 @@ a.more-link__default:hover {
 .entry-footer {
   margin-bottom:4rem;
   text-align: right;
+}
+
+.entry-content--category > img {
+  display: block;
+  margin-bottom:1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
