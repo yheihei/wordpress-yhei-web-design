@@ -215,3 +215,6 @@ function is_category_list_page() {
   $current_term = get_current_term();
   return !empty($category_list_ids) && in_array((string)$current_term->term_id, $category_list_ids, true);
 }
+
+// カテゴリーページの編集画面
+get_template_part( 'include/custom-category' );
