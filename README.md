@@ -27,6 +27,27 @@ $ git clone https://github.com/yheihei/wordpress-yhei-web-design.git draft-portf
 
 * WordPress管理画面から本子テーマを有効化する
 
+## トップページにポートフォリオ記事を表示する
+
+トップページの一覧に表示される記事を設定します。  
+
+!(トップページにポートフォリオカテゴリーを表示する)[https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/top_page_work.jpg]
+
+トップページには`portfolio`というスラグを持つポートフォリオ用のカテゴリーが付与された記事のみが表示されます。  
+まずは、ポートフォリオ用のカテゴリーを作ってトップページに記事を表示してみます。
+
+### slugがportfolioのカテゴリーを作成する
+
+* 管理画面 -> 投稿 -> カテゴリー
+* スラグが`portfoilo`のカテゴリーを作る  
+
+!(ポートフォリオカテゴリーを作る)[https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/category.png "ポートフォリオカテゴリーを作る"]
+
+* 記事に↑のカテゴリーを付与する
+
+!(記事にポートフォリオカテゴリーを付与する)[https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/post_with_category.png]
+
+
 ## ユニットテスト実施方法
 
 ### ローカル開発環境の用意
