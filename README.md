@@ -29,11 +29,11 @@ $ git clone https://github.com/yheihei/wordpress-yhei-web-design.git draft-portf
 
 ## トップページにポートフォリオ記事を表示する
 
-トップページの一覧に表示される記事を設定します。  
+トップページの一覧に表示されるポートフォリオ記事を設定します。  
 
-!(トップページにポートフォリオカテゴリーを表示する)[https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/top_page_work.jpg]
+![トップページにポートフォリオカテゴリーを表示する](https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/top_page_work.jpg)
 
-トップページには`portfolio`というスラグを持つポートフォリオ用のカテゴリーが付与された記事のみが表示されます。  
+トップページには`portfolio`というスラグを持つポートフォリオ用のカテゴリーが付与された記事が一覧で表示されます。  
 まずは、ポートフォリオ用のカテゴリーを作ってトップページに記事を表示してみます。
 
 ### slugがportfolioのカテゴリーを作成する
@@ -41,11 +41,32 @@ $ git clone https://github.com/yheihei/wordpress-yhei-web-design.git draft-portf
 * 管理画面 -> 投稿 -> カテゴリー
 * スラグが`portfoilo`のカテゴリーを作る  
 
-!(ポートフォリオカテゴリーを作る)[https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/category.png "ポートフォリオカテゴリーを作る"]
+![ポートフォリオカテゴリーを作る](https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/category.png)
 
 * 記事に↑のカテゴリーを付与する
 
-!(記事にポートフォリオカテゴリーを付与する)[https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/post_with_category.png]
+![記事にポートフォリオカテゴリーを付与する](https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/post_with_category.png)
+
+
+## トップページにブログ記事を表示する
+
+トップページの一覧に表示されるブログ記事を設定します。  
+
+![トップページにブログ記事を表示する](https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/blogs.jpg)
+
+トップページには`blogs`というスラグを持つブログ用のカテゴリーが付与された記事が表示されます。  
+ブログ用のカテゴリーを作ってトップページに記事を表示してみます。
+
+### slugがblogsのカテゴリーを作成する
+
+* 管理画面 -> 投稿 -> カテゴリー
+* スラグが`blogs`のカテゴリーを作る  
+
+![ブログカテゴリーを作る](https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/blog_category.png)
+
+* 記事に↑のカテゴリーを付与する
+
+![記事にブログカテゴリーを付与する](https://github.com/yheihei/wordpress-yhei-web-design/blob/image/screenshot/blog_post.png)
 
 
 ## ユニットテスト実施方法
