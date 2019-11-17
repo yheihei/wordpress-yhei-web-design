@@ -218,3 +218,36 @@ function is_category_list_page() {
 
 // カテゴリーページの編集画面
 get_template_part( 'include/custom-category' );
+
+/**
+ * 人気記事一覧の出力カスタマイズ
+ */
+function custom_single_popular_post( $content, $post, $instance ){
+  $image_url = get_the_post_thumbnail_url( $post->id, 'draft-portfolio-thumbnail' );
+  if( !$image_url ) {
+    $image_url = get_default_eyecatch_url();
+  }
+  $post_url = get_permalink( $post->id );
+  $output = <<<EOM
+<li class='yhei-post'>
+  <div class='yhei-post__thumbnail'>
+    <a href="$post_url" >
+      <img width="800" height="640" src="$image_url" class="attachment-draft-portfolio-thumbnail size-draft-portfolio-thumbnail wp-post-image yhei-post__eyecatch" alt="$post->title" />
+    </a>
+  </div>
+  <div class='yhei-post__description'>
+    <h2 class="yhei-post__title yhei-post__title--h2"><a href="$post_url" rel="bookmark">$post->title</a></h2>
+    <p class="yhei-post__view-counts yhei-post__view-counts--default">
+      $post->pageviews views
+    </p>
+  </div>
+</li>
+EOM;
+  return $output;
+}
+add_filter( 'wpp_post', 'custom_single_popular_post', 10, 3 );
+
+function get_default_eyecatch_url() {
+  $child_theme_uri  = get_stylesheet_directory_uri();
+  return $child_theme_uri . "/img/yhei_web_design_catch-800x640.jpg";
+}

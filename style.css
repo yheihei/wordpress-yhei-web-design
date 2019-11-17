@@ -392,4 +392,49 @@ a.more-link__default:hover {
   margin-bottom:1rem;
 }
 
+/* 人気記事一覧カスタマイズ */
+.yhei-post {
+  line-height: 1.5;
+}
+
+.yhei-post__thumbnail {
+  overflow: hidden;
+}
+
+.yhei-post__eyecatch {
+  display: block;
+  transition: 0.5s;
+}
+
+.yhei-post__eyecatch:hover{
+  opacity:0.5;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.yhei-post__description {
+  line-height: 1.5;
+  padding: 1em;
+  background-color: #fffafa;
+}
+
+.yhei-post__title {
+  padding:0 0 8px 0;
+  margin:0;
+}
+
+.yhei-post__title--h2 {
+  font-size: 1.3em;
+}
+
+.yhei-post__view-counts {
+  margin:0;
+  padding:0;
+}
+
+.yhei-post__view-counts--default {
+  color: gray;
+}
+
 /*# sourceMappingURL=style.css.map */
