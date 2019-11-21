@@ -159,34 +159,49 @@ article.grid-item .post-title h2.entry-title a,
 .yhei-grid__item .post-title h2.entry-title a {
   color: #404040;
 }
-article.grid-item .post-title h2.entry-title a:hover
+article.grid-item .post-title h2.entry-title a:hover,
 .yhei-grid__item.post-title h2.entry-title a:hover {
   opacity: 0.5;
 }
-article.grid-item .post-title p.date
-.yhei-grid__item .post-title p.date {
+p.date {
   color: gray;
   text-align: left;
   margin: 8px 0 0 0;
 }
 
-article.grid-item .post-title p.date--small,
-.yhei-grid__item .post-title p.date--small {
+p.date--small {
   font-size: 1.0rem;
 }
+.yhei-grid__item {
+  position: relative;
+}
+.yhei-grid__item .overbox {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  padding: 0 1em;
+}
 
-article.grid-item .overbox {
+article.grid-item .overbox,
+.yhei-grid__item .overbox {
   top: 1em;
   text-align: left;
   padding: 0;
 }
-article.grid-item .overbox .overtext {
+article.grid-item .overbox .overtext,
+.yhei-grid__item .overbox .overtext {
   text-align: left;
 }
-article.grid-item .overbox .overtext a {
+article.grid-item .overbox .overtext a,
+.yhei-grid__item .overbox .overtext a {
   background-color: #404040;
   padding: 1em;
   color: white;
+}
+.yhei-grid__item .tagline {
+  opacity: 1;
 }
 
 .grid-item:hover .post-thumb img {

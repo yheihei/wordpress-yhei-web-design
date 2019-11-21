@@ -40,7 +40,7 @@ if( is_archive() && $template_name === 'archive.php' ) {
 <div class="overbox">
 	<div class="title overtext"> 
 		<?php //the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
-</div>
+	</div>
 	<div class="tagline overtext"> <?php draft_portfolio_category();?> </div>
 </div>
 
