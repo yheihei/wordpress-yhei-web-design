@@ -3,6 +3,7 @@
 Template:draft-portfolio
 Theme Name:draft-portfolio_child
 */
+
 html {
   font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
 }
@@ -141,45 +142,66 @@ div#content {
     width: 100% !important;
   }
 }
-article.grid-item .post-title {
+article.grid-item .post-title,
+.yhei-grid__item .post-title {
   padding: 1em;
   line-height: 1.5;
   background-color: #fffafa;
 }
-article.grid-item .post-title h2.entry-title {
+article.grid-item .post-title h2.entry-title,
+.yhei-grid__item .post-title h2.entry-title {
   padding: 0;
   margin: 0;
   color: #404040;
   font-size: 1.3em;
 }
-article.grid-item .post-title h2.entry-title a {
+article.grid-item .post-title h2.entry-title a,
+.yhei-grid__item .post-title h2.entry-title a {
   color: #404040;
 }
-article.grid-item .post-title h2.entry-title a:hover {
+article.grid-item .post-title h2.entry-title a:hover,
+.yhei-grid__item.post-title h2.entry-title a:hover {
   opacity: 0.5;
 }
-article.grid-item .post-title p.date {
+p.date {
   color: gray;
   text-align: left;
   margin: 8px 0 0 0;
 }
 
-article.grid-item .post-title p.date--small {
+p.date--small {
   font-size: 1.0rem;
 }
+.yhei-grid__item {
+  position: relative;
+}
+.yhei-grid__item .overbox {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  padding: 0 1em;
+}
 
-article.grid-item .overbox {
+article.grid-item .overbox,
+.yhei-grid__item .overbox {
   top: 1em;
   text-align: left;
   padding: 0;
 }
-article.grid-item .overbox .overtext {
+article.grid-item .overbox .overtext,
+.yhei-grid__item .overbox .overtext {
   text-align: left;
 }
-article.grid-item .overbox .overtext a {
+article.grid-item .overbox .overtext a,
+.yhei-grid__item .overbox .overtext a {
   background-color: #404040;
   padding: 1em;
   color: white;
+}
+.yhei-grid__item .tagline {
+  opacity: 1;
 }
 
 .grid-item:hover .post-thumb img {
@@ -435,6 +457,38 @@ a.more-link__default:hover {
 
 .yhei-post__view-counts--default {
   color: gray;
+}
+
+.yhei-grid {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  -ms-column-count: 2;
+  -o-column-count: 2;
+  column-count: 2;
+  column-gap: 20px;
+}
+
+@media (max-width: 767px) {
+  .yhei-grid {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    -ms-column-count: 1;
+    -o-column-count: 1;
+    column-count: 1;
+  }
+}
+
+.yhei-grid__item {
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  -ms-column-break-inside: avoid;
+  -o-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.yhei-grid__item--primary {
+  background-color: #fffafa;
 }
 
 /*# sourceMappingURL=style.css.map */

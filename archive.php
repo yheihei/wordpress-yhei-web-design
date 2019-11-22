@@ -30,6 +30,9 @@ get_header(); ?>
 
         <?php
         /* Start the Loop */
+        ?>
+        <div class="yhei-grid" >
+        <?php
         while ( have_posts() ) : the_post();
 
           /*
@@ -41,7 +44,9 @@ get_header(); ?>
           get_template_part( 'template-parts/content', 'preview' );
 
         endwhile;
-
+        ?>
+        </div>
+        <?php
         get_template_part( 'pagination' ); 
 
       else :
