@@ -14,7 +14,7 @@
 $current_term = get_current_term();
 ?>
 <?php if( $current_term->description ) : ?>
-<article id="post-<?= $current_term->term_id ?>" <?php post_class(''); ?> >
+<article id="post-<?= $current_term->term_id ?>" <?php post_class(); ?> >
   <div class="entry-content entry-content--category">
     <?php echo $current_term->description; ?>
   </div><!-- .entry-content -->

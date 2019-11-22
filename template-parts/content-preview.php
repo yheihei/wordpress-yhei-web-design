@@ -13,7 +13,6 @@ global $template; // テンプレートファイルのパスを取得
 $template_name = basename($template);
 if( is_archive() && $template_name === 'archive.php' ) {
 	// アーカイブページの場合はサイドバーありのgrid表示クラスにする
-	// post_class( 'grid-item yhei-grid-item col-6-12-custom mobile-col-6-12 small-col-1');
 	post_class( 'yhei-grid__item yhei-grid__item--primary yhei-post');
 } else {
 	post_class( 'col-4-12 grid-item mobile-col-6-12 small-col-1');
