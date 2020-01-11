@@ -251,3 +251,10 @@ function get_default_eyecatch_url() {
   $child_theme_uri  = get_stylesheet_directory_uri();
   return $child_theme_uri . "/img/yhei_web_design_catch-800x640.jpg";
 }
+
+
+function custom_category_list($category, $cat_parents) {
+  var_dump($category);
+  var_dump($cat_parents);
+}
+add_filter( 'the_category_list', 'custom_category_list', 10, 3 );
