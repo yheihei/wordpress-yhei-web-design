@@ -251,3 +251,18 @@ function get_default_eyecatch_url() {
   $child_theme_uri  = get_stylesheet_directory_uri();
   return $child_theme_uri . "/img/yhei_web_design_catch-800x640.jpg";
 }
+
+/**
+ * Contact Form7 完了ページの遷移処理
+ */
+add_action( 'wp_footer', 'add_thanks_page' );
+function add_thanks_page() {
+  $home_url = home_url();
+  echo <<< EOD
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+  location = '${home_url}/contact-complete/'; /* 遷移先のURL */
+}, false );
+</script>
+EOD;
+}
