@@ -266,3 +266,17 @@ document.addEventListener( 'wpcf7mailsent', function( event ) {
 </script>
 EOD;
 }
+
+/**
+ * 記事下CTAウィジェット追加
+ */
+add_action('widgets_init', 'add_cta_after_posts_widget');
+function add_cta_after_posts_widget() {
+  register_sidebar(array(
+    'id' => 'yhei_cta_after_posts',
+    'name' => '記事下CTA',
+    'description' => '記事下に表示されるコンテンツ',
+    'before_widget' => '<div>',
+    'after_widget' => "</div>\n",
+  ));
+}

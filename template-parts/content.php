@@ -43,6 +43,11 @@
 				'after'  => '</div>',
 			) );
 		?>
+    <?php if(is_active_sidebar('yhei_cta_after_posts')) :
+      // 記事下CTA
+      ?>
+      <?php dynamic_sidebar('yhei_cta_after_posts'); ?>
+    <?php endif; ?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
