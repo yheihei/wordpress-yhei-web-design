@@ -24,6 +24,16 @@ textarea {
   font-weight: 100;
 }
 
+@media (max-width: 767px) {
+  #cssmenu {
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
+  }
+  #cssmenu #menu-button {
+    border-width: 1px 0;
+  }
+}
+
 ul,
 ol {
   margin: 0;
@@ -206,6 +216,47 @@ article.grid-item .overbox .overtext a,
 
 .grid-item:hover .post-thumb img {
   opacity: 0.5;
+}
+
+@media (max-width: 767px) {
+  .post-thumb {
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
+  }
+}
+
+.entry-content h2,h3,h4,h5,h6 {
+  margin-top:2rem;
+  margin-bottom:1rem;
+}
+
+.entry-content h2 {
+  background-color: black;
+  color: white;
+  padding: 16px;
+}
+
+.entry-content h2 > a {
+  color: white;
+  text-decoration: underline;
+}
+
+.entry-content h2 > a:hover {
+  opacity: 1;
+  color: white;
+}
+
+.entry-content h3 {
+  border: solid black;
+  border-width: 0 0 2px 0;
+  padding-bottom: 8px;
+}
+
+@media (max-width: 767px) {
+  .entry-content h2 {
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
+  }
 }
 
 div.entry-content p,
