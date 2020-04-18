@@ -257,7 +257,7 @@ article.grid-item .overbox .overtext a,
 
 @media (max-width: 767px) {
   .entry-content h2 {
-    margin: 0 calc(50% - 50vw);
+    margin: 2rem calc(50% - 50vw) 1rem;
     width: 100vw;
   }
 }
