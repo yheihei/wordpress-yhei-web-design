@@ -234,9 +234,9 @@ article.grid-item .overbox .overtext a,
 }
 
 .entry-content h2 {
-  background-color: black;
-  color: white;
   padding: 16px;
+  border: solid black;
+  border-width: 2px 0;
 }
 
 .entry-content h2 > a {
