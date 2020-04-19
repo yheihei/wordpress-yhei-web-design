@@ -234,7 +234,7 @@ article.grid-item .overbox .overtext a,
 }
 
 .entry-content h2 {
-  padding: 16px;
+  padding: 16px 0;
   border: solid black;
   border-width: 2px 0;
 }
@@ -251,6 +251,7 @@ article.grid-item .overbox .overtext a,
 
 @media (max-width: 767px) {
   .entry-content h2 {
+    padding: 16px;
     margin: 2rem calc(50% - 50vw) 1rem;
     width: 100vw;
   }
