@@ -240,13 +240,7 @@ article.grid-item .overbox .overtext a,
 }
 
 .entry-content h2 > a {
-  color: white;
   text-decoration: underline;
-}
-
-.entry-content h2 > a:hover {
-  opacity: 1;
-  color: white;
 }
 
 .entry-content h3 {
