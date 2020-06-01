@@ -27,7 +27,6 @@ textarea {
 @media (max-width: 767px) {
   #cssmenu {
     margin: 0 calc(50% - 50vw);
-    width: 100vw;
   }
   #cssmenu #menu-button {
     border-width: 1px 0;
