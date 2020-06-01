@@ -25,11 +25,8 @@ textarea {
 }
 
 @media (max-width: 767px) {
-  #cssmenu {
-    margin: 0 calc(50% - 50vw);
-  }
   #cssmenu #menu-button {
-    border-width: 1px 0;
+    border-width: 1px;
   }
   footer #cssmenu {
     margin:initial;
@@ -218,13 +215,6 @@ article.grid-item .overbox .overtext a,
 
 .grid-item:hover .post-thumb img {
   opacity: 0.5;
-}
-
-@media (max-width: 767px) {
-  .post-thumb {
-    margin: 0 calc(50% - 50vw);
-    width: 100vw;
-  }
 }
 
 .entry-content h2,h3,h4,h5,h6 {
