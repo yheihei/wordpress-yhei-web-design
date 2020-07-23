@@ -500,21 +500,20 @@ a.more-link__default:hover {
 }
 
 .yhei-grid {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  -ms-column-count: 2;
-  -o-column-count: 2;
-  column-count: 2;
-  column-gap: 20px;
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 49% 49%;
+  -ms-grid-columns: 49% 49%;
+  column-gap: 2%;
 }
 
 @media (max-width: 767px) {
   .yhei-grid {
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
-    -ms-column-count: 1;
-    -o-column-count: 1;
-    column-count: 1;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 100%;
+    -ms-grid-columns: 100;
+    column-gap: 0;
   }
 }
 
