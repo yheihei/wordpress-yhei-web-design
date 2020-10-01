@@ -16,3 +16,5 @@ php.ini
 /bin/
 /phpunit.xml.dist
 tests/test-sample.php
+tests/bootstrap.php
+init_wp_theme_test.sh

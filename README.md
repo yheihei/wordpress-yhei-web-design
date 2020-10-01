@@ -72,49 +72,37 @@ $ git clone https://github.com/yheihei/wordpress-yhei-web-design.git draft-portf
 ## ユニットテスト実施方法
 
 ### ローカル開発環境の用意
-ローカル開発環境として Vagrant の `vccw-team/xenial64` Boxを使用しています。  
-導入方法は参考リンクをご参照ください。  
-参考: [【VCCW】WordPressのローカル開発環境を作ってみた！【Windows10】](https://cunelwork.co.jp/blog/web/vccw-local-windows/)
-
-### テスト環境構築
-```
-$ cd <your wordpress root>/wp-content/themes/draft-portfolio_child
-$ wp scaffold theme-tests --dir=<your wordpress root>/wp-content/themes/draft-portfolio_child
-Warning: File already exists.
-<your wordpress root>/wp-content/themes/draft-portfolio_child/tests/bootstrap.php
-Skip this file, or replace it with scaffolding?[s/r]: s
-Skipping
-
-Success: Created test files.
-
-$ ./init_test.sh 
-Dropping the database is potentially a very bad thing to do.
-Any data stored in the database will be destroyed.
-
-Do you really want to drop the 'wordpress_test' database [y/N] y
-```
+ローカル開発環境として テスト環境が整ったDocker環境を使っています。  
+導入方法は下記のDocker環境構築リポジトリをご参照ください。  
+リポジトリ: [WordPress+WP-CLI+PHPUnit環境をDockerで動かす](https://github.com/yheihei/wp-docker-template)
 
 ### ユニットテストの実行
 ```
-$ phpunit --testdox
+root@wordpress:/var/www/html/wp-content/themes/draft-portfolio_child# phpunit --testdox
 Installing...
 Running as single site... To run multisite, use -c tests/phpunit/multisite.xml
 Not running ajax tests. To execute these, use --group ajax.
 Not running ms-files tests. To execute these, use --group ms-files.
 Not running external-http tests. To execute these, use --group external-http.
-PHPUnit 5.6.0 by Sebastian Bergmann and contributors.
+PHPUnit 7.5.9 by Sebastian Bergmann and contributors.
 
 カテゴリーページで記事ではなく子カテゴリー一覧を表示する設定を追加する
- [x] 対象のカテゴリーを管理画面から指定できること
- [x] 対象のカテゴリーを管理画面から複数指定できること
- [x] 設定したカテゴリーの直近の子カテゴリーが取得できること
- [x] 設定したカテゴリーの直近の子カテゴリーが複数取得できること
- [x] 現在のページが設定したカテゴリーページであるか判定できる
+ ✔ 対象のカテゴリーを管理画面から指定できること
+ ✔ 対象のカテゴリーを管理画面から複数指定できること
+ ✔ 設定したカテゴリーの直近の子カテゴリーが取得できること
+ ✔ 設定したカテゴリーの直近の子カテゴリーが複数取得できること
+ ✔ 現在のページが設定したカテゴリーページであるか判定できる
+ ✔ 設定したカテゴリーページのアイキャッチが取得できる
+ ✔ 設定したカテゴリーページのピックアップ画像が取得できる
 
-トップページにBlogカテゴリーの記事を3つ表示する
- [x] スラグがblogsのカテゴリーを持つ投稿を全て取得できること
- [x] 取得した投稿のカテゴリーが blogカテゴリーであること
- [x] 取得した投稿のカテゴリーが blogの子カテゴリーであること
+Blogカテゴリーの記事を取得できること
+ ✔ スラグがblogsのカテゴリーを持つ投稿を全て取得できること
+ ✔ 取得した投稿のカテゴリーが blogカテゴリーであること
+ ✔ 取得した投稿のカテゴリーが blogの子カテゴリーであること
+
+Time: 3.56 seconds, Memory: 32.50 MB
+
+OK (10 tests, 12 assertions)
 ```
 
 
