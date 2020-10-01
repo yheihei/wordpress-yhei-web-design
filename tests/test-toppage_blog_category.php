@@ -72,11 +72,8 @@ class トップページにBlogカテゴリーの記事を3つ表示する exten
 	public function 取得した投稿のカテゴリーがBlogカテゴリーであること() {
 		$wp_query = createDiaryPostsQuery();
 		while ( $wp_query->have_posts() ) : $wp_query->the_post();
-			$categories = get_the_category(the_ID());
-			$category_slugs = [];
-			foreach($categories as $category) {
-				$category_slugs[] = $category->slug;
-			}
+			$categories = get_the_category(get_the_ID());
+			$category_slugs = array_column( $categories, 'slug' );
 			$this->assertTrue(in_array('blogs', $category_slugs, true));
 		endwhile;
 	}
@@ -87,11 +84,8 @@ class トップページにBlogカテゴリーの記事を3つ表示する exten
 	public function 取得した投稿のカテゴリーがBlogの子カテゴリーであること() {
 		$wp_query = createDiaryPostsQuery();
 		while ( $wp_query->have_posts() ) : $wp_query->the_post();
-			$categories = get_the_category(the_ID());
-			$category_slugs = [];
-			foreach($categories as $category) {
-				$category_slugs[] = $category->slug;
-			}
+			$categories = get_the_category(get_the_ID());
+			$category_slugs = array_column( $categories, 'slug' );
 			$this->assertTrue(in_array('diary', $category_slugs, true));
 		endwhile;
 	}
