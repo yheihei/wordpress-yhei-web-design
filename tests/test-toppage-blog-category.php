@@ -10,9 +10,13 @@
  */
 class Blogカテゴリーの記事を取得できること extends WP_UnitTestCase {
 
+	private $post_ids = array();
 	private $blogs_category_id;
 	private $diary_category_id;
 
+	/**
+	 * セットアップ Blogカテゴリーの記事とBlogカテゴリー以外の記事を作る
+	 */
 	public function setUp() {
 		// カテゴリーを定義.
 		$cat_option = array(
@@ -41,34 +45,46 @@ class Blogカテゴリーの記事を取得できること extends WP_UnitTestCa
 			'post_author'   => 1,
 			'post_category' => array( $this->blogs_category_id, $this->diary_category_id ),
 		);
-		// 投稿をデータベースへ追加.
-		wp_insert_post( $my_post );
-		// 投稿オブジェクトを作成.
-		$my_post = array(
-			'post_title'    => 'My post2',
-			'post_content'  => 'This is my post2.',
-			'post_status'   => 'publish',
-			'post_author'   => 1,
-			'post_category' => array( $this->blogs_category_id,$this->diary_category_id ),
+		// ブログの投稿を7記事データベースへ追加.
+		for ( $i = 0; $i < 7; $i++ ) {
+			$this->post_ids[] = wp_insert_post( $my_post );
+		}
+		// 1件、ブログ以外の投稿を用意.
+		$this->post_ids[] = wp_insert_post(
+			array(
+				'post_title'   => 'ブログ記事以外',
+				'post_content' => 'この投稿はブログではありません。',
+			)
 		);
-		// 投稿をデータベースへ追加.
-		wp_insert_post( $my_post );
 	}
 
+	/**
+	 * 後処理 使用したカテゴリーや記事の削除
+	 */
 	public function tearDown() {
+		// 使用したカテゴリーの削除.
 		wp_delete_category( $this->blogs_category_id );
 		wp_delete_category( $this->diary_category_id );
+
+		// 使用した記事の削除.
+		foreach ( $this->post_ids as $post_id ) {
+			wp_delete_post( $post_id );
+		}
 	}
 
 	/**
+	 * スラグがblogsのカテゴリーを持つ投稿を3件取得できること
+	 *
 	 * @test
 	 */
-	public function スラグがblogsのカテゴリーを持つ投稿を全て取得できること() {
+	public function スラグがblogsのカテゴリーを持つ投稿を3件取得できること() {
 		$wp_query = createDiaryPostsQuery();
-		$this->assertTrue( $wp_query->have_posts() );
+		$this->assertEquals( 3, $wp_query->post_count );
 	}
 
 	/**
+	 * 取得した投稿のカテゴリーがBlogカテゴリーであること
+	 *
 	 * @test
 	 */
 	public function 取得した投稿のカテゴリーがBlogカテゴリーであること() {
@@ -82,6 +98,8 @@ class Blogカテゴリーの記事を取得できること extends WP_UnitTestCa
 	}
 
 	/**
+	 * 取得した投稿のカテゴリーがBlogの子カテゴリーであること
+	 *
 	 * @test
 	 */
 	public function 取得した投稿のカテゴリーがBlogの子カテゴリーであること() {
