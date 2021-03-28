@@ -280,3 +280,18 @@ function add_cta_after_posts_widget() {
     'after_widget' => "</div>\n",
   ));
 }
+
+/**
+ * 特定のカテゴリーの記事を取得する
+ *
+ * @param string $category_slug_name カテゴリーのスラグ名.
+ * @param int    $posts_per_page     何件取得するか.
+ * @return WP_Query
+ */
+function create_posts_query_by_category( $category_slug_name, $posts_per_page = 3 ) {
+	$args = array(
+		'category_name'  => $category_slug_name,
+		'posts_per_page' => $posts_per_page,
+	);
+	return new WP_Query( $args );
+}
