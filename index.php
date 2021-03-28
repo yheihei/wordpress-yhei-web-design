@@ -16,33 +16,33 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<?php if ( is_home() && ! is_paged() ) : ?>
-			<h2 class="heading heading--dropcap">Routine<span class="heading__caption">積み重ね</span></h2>
-			<div class="site-main masonry" role="main">
 			<?php
 				// ルーティンカテゴリーを表示.
 				get_template_part(
 					'template-parts/index',
 					'category',
-					array( 'slug' => 'habbits', 'posts_per_page' => 3 )
+					array(
+						'slug'           => 'habbits',
+						'title'          => 'Routine',
+						'sub_title'      => '日々の積み重ね',
+						'posts_per_page' => 3,
+					)
 				);
 			?>
-			</div>
-			<a class="top-category-link" href="<?php echo esc_url( get_category_link_by_slug( 'habbits' ) ); ?>" >...More</a>
 
-      <h2 class="heading heading--dropcap">Diary<span class="heading__caption">思っていること 経験したこと</span></h2>
-      <div class="site-main masonry" role="main">
-      <?php
-        // 日記カテゴリーを表示.
+			<?php
+				// 日記カテゴリーを表示.
 				get_template_part(
 					'template-parts/index',
 					'category',
-					array( 'slug' => 'blogs' )
+					array(
+						'slug'      => 'blogs',
+						'title'     => 'Diary',
+						'sub_title' => '思っていること 経験したこと',
+					)
 				);
-      ?>
-      </div>
-
-			<a class="top-category-link" href="<?php echo esc_url( get_category_link_by_slug( 'blogs' ) ); ?>" >...More</a>
-    <?php endif; ?>
+			?>
+		<?php endif; ?>
 
 		<h2 class="heading heading--dropcap">Work<span class="heading__caption">得意なこと 仕事ぶり</span></h2>
 		<main id="main" class="site-main masonry" role="main">
