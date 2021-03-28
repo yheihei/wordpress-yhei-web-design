@@ -17,6 +17,8 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<?php if ( is_home() && ! is_paged() ) : ?>
 			<?php
+				// 特定のカテゴリの記事一覧を表示
+				// TODO: 管理画面から設定可能なようにすること
 				// ルーティンカテゴリーを表示.
 				get_template_part(
 					'template-parts/index',
