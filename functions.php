@@ -295,3 +295,21 @@ function create_posts_query_by_category( $category_slug_name, $posts_per_page = 
 	);
 	return new WP_Query( $args );
 }
+
+/**
+ * 特定のカテゴリーのカテゴリー一覧のリンクを取得する
+ *
+ * @param string $category_slug_name カテゴリーのスラグ名.
+ * @return string
+ * @throws InvalidArgumentException  Cカテゴリーが存在しなければException.
+ */
+function get_category_link_by_slug( $category_slug_name ) {
+	// 指定したカテゴリーの ID を取得.
+	$category    = get_category_by_slug( $category_slug_name );
+	$category_id = $category->term_id ?? null;
+	if ( null === $category_id ) {
+		throw new InvalidArgumentException( "{$category_slug_name} category was not found." );
+	}
+	// このカテゴリーの URL を取得.
+	return get_category_link( $category_id );
+}

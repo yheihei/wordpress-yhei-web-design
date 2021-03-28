@@ -10,7 +10,7 @@
 ?>
 
 <?php
-$the_query = createDiaryPostsQuery();
+$the_query = create_posts_query_by_category( 'blogs', 6 );
 ?>
 
 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>

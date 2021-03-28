@@ -24,14 +24,7 @@ get_header(); ?>
       ?>
       </div>
 
-      <?php
-        // 指定したカテゴリーの ID を取得
-        $idObj = get_category_by_slug( 'blogs');
-        $category_id = $idObj->term_id;
-        // このカテゴリーの URL を取得
-        $category_link = get_category_link( $category_id );
-      ?>
-      <a class="top-category-link" href="<?php echo esc_url( $category_link ); ?>" >...More</a>
+			<a class="top-category-link" href="<?php echo esc_url( get_category_link_by_slug( 'blogs' ) ); ?>" >...More</a>
     <?php endif; ?>
 
 		<h2 class="heading heading--dropcap">Work<span class="heading__caption">得意なこと 仕事ぶり</span></h2>

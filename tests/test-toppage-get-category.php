@@ -122,4 +122,23 @@ class Test特定のカテゴリーの記事を取得できること extends WP_U
 			$this->assertTrue( in_array( 'muscle', $category_slugs, true ) );
 		endwhile;
 	}
+
+	/**
+	 * スラグがroutineのカテゴリー一覧のリンクが取得できること
+	 *
+	 * @test
+	 */
+	public function スラグがroutineのカテゴリー一覧のリンクが取得できること() {
+		$this->assertEquals( home_url() . "/?cat={$this->routine_category_id}", get_category_link_by_slug( 'routine' ) );
+	}
+
+	/**
+	 * 存在しないスラグのカテゴリー一覧のリンクを取得しようとしたらExceptionとなること
+	 *
+	 * @test
+	 * @expectedException InvalidArgumentException
+	 */
+	public function 存在しないスラグのカテゴリー一覧のリンクを取得しようとしたらExceptionとなること() {
+		get_category_link_by_slug( 'hage' );
+	}
 }
