@@ -308,7 +308,7 @@ function get_category_link_by_slug( $category_slug_name ) {
 	$category    = get_category_by_slug( $category_slug_name );
 	$category_id = $category->term_id ?? null;
 	if ( null === $category_id ) {
-		throw new InvalidArgumentException( "{$category_slug_name} category was not found." );
+		return home_url();
 	}
 	// このカテゴリーの URL を取得.
 	return get_category_link( $category_id );

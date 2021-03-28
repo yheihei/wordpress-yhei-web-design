@@ -15,12 +15,29 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-    <?php if( is_home() && !is_paged() ) : ?>
+		<?php if ( is_home() && ! is_paged() ) : ?>
+			<h2 class="heading heading--dropcap">Routine<span class="heading__caption">積み重ね</span></h2>
+			<div class="site-main masonry" role="main">
+			<?php
+				// ルーティンカテゴリーを表示.
+				get_template_part(
+					'template-parts/index',
+					'category',
+					array( 'slug' => 'habbits', 'posts_per_page' => 3 )
+				);
+			?>
+			</div>
+			<a class="top-category-link" href="<?php echo esc_url( get_category_link_by_slug( 'habbits' ) ); ?>" >...More</a>
+
       <h2 class="heading heading--dropcap">Diary<span class="heading__caption">思っていること 経験したこと</span></h2>
       <div class="site-main masonry" role="main">
       <?php
-        // 日記カテゴリーを表示
-        get_template_part( 'template-parts/index', 'diary' );
+        // 日記カテゴリーを表示.
+				get_template_part(
+					'template-parts/index',
+					'category',
+					array( 'slug' => 'blogs' )
+				);
       ?>
       </div>
 

@@ -133,12 +133,11 @@ class Test特定のカテゴリーの記事を取得できること extends WP_U
 	}
 
 	/**
-	 * 存在しないスラグのカテゴリー一覧のリンクを取得しようとしたらExceptionとなること
+	 * 存在しないスラグのカテゴリー一覧のリンクを取得しようとしたらホームへのリンクとなること
 	 *
 	 * @test
-	 * @expectedException InvalidArgumentException
 	 */
-	public function 存在しないスラグのカテゴリー一覧のリンクを取得しようとしたらExceptionとなること() {
-		get_category_link_by_slug( 'hage' );
+	public function 存在しないスラグのカテゴリー一覧のリンクを取得しようとしたらホームへのリンクとなること() {
+		$this->assertEquals( home_url(), get_category_link_by_slug( 'hage' ) );
 	}
 }

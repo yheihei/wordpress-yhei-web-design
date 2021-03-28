@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts on blogs category
+ * Template part for displaying posts on specific category.
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -10,7 +10,8 @@
 ?>
 
 <?php
-$the_query = create_posts_query_by_category( 'blogs', 6 );
+$posts_per_page = $args['posts_per_page'] ?? 6;
+$the_query      = create_posts_query_by_category( $args['slug'], $posts_per_page );
 ?>
 
 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
