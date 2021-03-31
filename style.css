@@ -278,6 +278,10 @@ div.entry-content blockquote {
   border-left-color: #CCC;
 }
 
+div.entry-content a {
+  word-break: break-all;
+}
+
 .col-8-12-custom {
   width: 60%;
 }
