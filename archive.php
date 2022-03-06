@@ -10,7 +10,7 @@
 get_header(); ?>
 
   <div id="primary" class="content-area">
-    <main id="main" class="site-main col-9-12" role="main">
+    <main id="main" class="site-main col-8-12-custom" role="main">
     <?php if ( is_category() ) : ?>
       <?php
       $cat_info = get_category( $cat );
