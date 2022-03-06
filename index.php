@@ -19,20 +19,6 @@ get_header(); ?>
 			<?php
 				// 特定のカテゴリの記事一覧を表示
 				// TODO: 管理画面から設定可能なようにすること
-				// ルーティンカテゴリーを表示.
-				get_template_part(
-					'template-parts/index',
-					'category',
-					array(
-						'slug'           => 'habbits',
-						'title'          => 'Routine',
-						'sub_title'      => '日々の積み重ね',
-						'posts_per_page' => 3,
-					)
-				);
-			?>
-
-			<?php
 				// 日記カテゴリーを表示.
 				get_template_part(
 					'template-parts/index',
